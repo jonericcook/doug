@@ -18,7 +18,7 @@ defmodule Doug.Runner do
     {_current_value, updated_state} =
       app_name
       |> Doug.State.get()
-      |> Map.get_and_update(:counter, fn current_value ->
+      |> Map.get_and_update(:be_kind, fn current_value ->
         case current_value do
           nil ->
             {current_value, false}
@@ -32,7 +32,6 @@ defmodule Doug.Runner do
       end)
 
     Doug.State.set(app_name, updated_state)
-    IO.inspect(updated_state)
     schedule_runner()
 
     {:noreply, state}
