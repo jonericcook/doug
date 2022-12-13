@@ -1,18 +1,7 @@
 defmodule Doug do
-  @moduledoc """
-  Documentation for `Doug`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Doug.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def on?(app_name, feature_flag) do
+    app_name
+    |> Doug.State.get()
+    |> Map.get(feature_flag, false)
   end
 end
