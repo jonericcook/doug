@@ -9,5 +9,6 @@ defmodule Doug.State do
 
   def get(app_name), do: Agent.get(Module.concat(app_name, __MODULE__), & &1)
 
-  def set(app_name, new_state), do: Agent.update(Module.concat(app_name, __MODULE__), fn _current_state -> new_state end)
+  def set(app_name, new_state),
+    do: Agent.update(Module.concat(app_name, __MODULE__), fn _current_state -> new_state end)
 end
